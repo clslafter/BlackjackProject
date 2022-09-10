@@ -18,6 +18,11 @@ public class Deck {
 		System.out.println("Done creating " + deck.size());
 	}
 	
+	public int cardsLeftInDeck () {
+//		how is this supposed to be different than checkDeckSize?
+		return deck.size();
+	}
+	
 	public int checkDeckSize() {
 		return deck.size();
 		
@@ -25,6 +30,12 @@ public class Deck {
 	
 	public Card dealCard () {
 		return deck.remove(0);
+	}
+	
+	public void dealCard (Hand hand) {
+//		what am I supposed to put here?
+//		what is this method supposed to do?
+		
 	}
 	
 	public void shuffle () {
