@@ -47,7 +47,7 @@ public abstract class Hand {
 		String result = "";
 		
 		for (Card card : hand) {
-			result += card.toString() + " ";
+			result += card.toString() + ", ";
 		}
 		return result;
 	}

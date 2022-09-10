@@ -41,6 +41,31 @@ public class BlackjackHand extends Hand {
 		return bust;
 	}
 	
+	public boolean isUnder17 () {
+//		true if the value of the cards in the hand is less than 17
+		boolean under17 = true;
+		
+		if(getHandValue() >= 17) {
+			under17 = false;
+		}
+		
+		return under17;
+				
+	}
+	
+	
+	public boolean is17OrOver () {
+//		true if the value of the cards in the hand is less than 17
+		boolean over17 = true;
+		
+		if(getHandValue() < 17) {
+			over17 = false;
+		}
+		
+		return over17;
+				
+	}
+	
 	public boolean isHard () {
 //		if there is no ACE in the hand, the hand is hard
 		boolean hard = true;

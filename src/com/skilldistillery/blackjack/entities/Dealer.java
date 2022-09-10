@@ -42,7 +42,7 @@ public class Dealer extends Player {
 	
 	public void ShowDealerFirstHand () {
 //		Show second card in dealer Hand
-		System.out.println("Dealer Hand: First card face down, " + BlackjackHand.getHand().get(1) +"\n" +
+		System.out.println("Dealer's Hand: First card face down, " + BlackjackHand.getHand().get(1) +"\n" +
 				"Total: " + BlackjackHand.getHand().get(1).getValue());
 		
 	}

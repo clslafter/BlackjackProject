@@ -24,9 +24,9 @@ public class Player {
 		this.BlackjackHand = playerHand;
 	}
 	
-	public void ShowHand () {
+	public void showHand () {
 //		calls the BlackjackHand toString to show the cards in the hand
-		System.out.println("Player Hand: " + BlackjackHand.toString() + 
+		System.out.println("Hand: " + BlackjackHand.toString() + 
 				"\nTotal: " + BlackjackHand.getHandValue()); 
 		
 	}
