@@ -10,21 +10,32 @@ public abstract class Hand {
 	
 	public Hand () {}
 	
-	public void addCard () {
+	public void addCard (Card card) {
 //		gets a card from the deck and adds to hand
-		Deck deck = new Deck();
-		hand.add(deck.dealCard());
+		hand.add(card);
 	}
 	
-	public void clear () {
-//		?clears (?removes?) all cards from the hand?
-//		Use iterator because we're removing the cards from the list
-		Iterator<Card> it = hand.iterator();
 
-		while (it.hasNext()) {
-		  Card element = it.next();
-		  hand.remove(0);
-		}
+	
+	public List<Card> getHand() {
+		return hand;
+	}
+
+	public void setHand(List<Card> hand) {
+		this.hand = hand;
+	}
+
+	public void clear () {
+//		clears (removes) all cards from the hand?
+//		Use iterator because we're removing the cards from the list
+//		Iterator<Card> it = hand.iterator();
+//
+//		while (it.hasNext()) {
+//		  Card element = it.next();
+//		  hand.remove(0);
+//		}
+		
+		hand.removeAll(hand);
 	}
 	
 	public abstract int getHandValue ();

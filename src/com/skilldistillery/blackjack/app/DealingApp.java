@@ -30,7 +30,7 @@ public class DealingApp {
 		while(numCardsDealt < numCardsToDeal  ) {
 			Card card = deck.dealCard();
 			System.out.print("Dealt " + card + " => ");
-			System.out.println(deck.checkDeckSize() + " cards left");
+//			System.out.println(deck.checkDeckSize() + " cards left");
 			total += card.getValue();
 			numCardsDealt++;
 		}

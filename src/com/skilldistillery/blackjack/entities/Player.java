@@ -1,31 +1,34 @@
 package com.skilldistillery.blackjack.entities;
 
 public class Player {
-// Is it better to define the field as a Hand or BlackjackHand?
-	protected Hand playerHand = new BlackjackHand();
+
+	private String name;
+	protected BlackjackHand BlackjackHand = new BlackjackHand();
 	
-	public void hit () {
-//		player chooses to have one more card dealt to him from the dealer's deck and added to his hand
-//		what should this method return, if anything?
-//		?If it's the dealer that has the deck and that deals the card to the player,
-//		what should this method do?? Should the dealer have this method?
+
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public BlackjackHand getPlayerHand() {
+		return BlackjackHand;
+	}
+
+	public void setPlayerHand(BlackjackHand playerHand) {
+		this.BlackjackHand = playerHand;
+	}
+	
+	public void ShowHand () {
+//		calls the BlackjackHand toString to show the cards in the hand
+		System.out.println("Player Hand: " + BlackjackHand.toString() + 
+				"\nTotal: " + BlackjackHand.getHandValue()); 
 		
-		
 	}
-	
-	public void stay () {
-//		player chooses to keep the cards in hand
-//		what should this method return, if anything?
-
-	}
-
-	public Hand getPlayerHand() {
-		return playerHand;
-	}
-
-	public void setPlayerHand(Hand playerHand) {
-		this.playerHand = playerHand;
-	}
-	
-	
  }
+

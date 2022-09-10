@@ -2,7 +2,10 @@ package com.skilldistillery.blackjack.entities;
 
 public class BlackjackHand extends Hand {
 	
+	
+	
 	public BlackjackHand () {}
+	
 	
 	@Override
 	public int getHandValue () {

@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-	List<Card> deck = new ArrayList<>();
+	List<Card> deck = new ArrayList<>(52);
 
 	public Deck() {
 		super();
@@ -15,30 +15,37 @@ public class Deck {
 			}
 		}
 		
-		System.out.println("Done creating " + deck.size());
+//		System.out.println("Done creating " + deck.size());
 	}
 	
 	public int cardsLeftInDeck () {
-//		how is this supposed to be different than checkDeckSize?
+//		check size of deck
 		return deck.size();
 	}
 	
-	public int checkDeckSize() {
-		return deck.size();
-		
-	}
 	
 	public Card dealCard () {
 		return deck.remove(0);
 	}
 	
 	public void dealCard (Hand hand) {
-//		what am I supposed to put here?
-//		what is this method supposed to do?
+//		when a card is dealt, it must be placed in either the dealer's or the player's hand
+		
+		hand.addCard(deck.remove(0));
 		
 	}
 	
 	public void shuffle () {
 		Collections.shuffle(deck);
 	}
+
+	public List<Card> getDeck() {
+		return deck;
+	}
+
+	public void setDeck(List<Card> deck) {
+		this.deck = deck;
+	}
+	
+	
 }
