@@ -28,6 +28,11 @@ conditions.
 
 I also learned how to use returns to exit methods before all the method code was run.
 
+I learned that placing certain conditions before others is important, especially in the dealer's turn, where the condition
+for bust needs to be placed before the condition for over 17 in order for the hands to evaluate properly.
+
+I also learned how to use a do while loop to only loop in the play again method if the user did not give a valid option.
+
 
 
 ## Technologies Used

@@ -36,7 +36,9 @@ public class BlackjackApp {
 			System.out.println();
 			// If the player or dealer is dealt 21, the round is over.
 			if (player.getPlayerHand().isBlackJack()) {
+				System.out.print("Dealer's ");
 				dealer.showHand();
+				System.out.println();
 				if (dealer.getPlayerHand().isBlackJack()) {
 					System.out.println("It's a tie! The round is over");
 					System.out.println();
@@ -124,7 +126,7 @@ public class BlackjackApp {
 
 	public boolean dealersTurn(Dealer dealer) {
 		boolean stay = false;
-		
+
 		if (dealer.getPlayerHand().isBlackJack()) {
 			System.out.print("Dealer's ");
 			((Player) dealer).showHand();
@@ -133,26 +135,25 @@ public class BlackjackApp {
 			System.out.println();
 			return false;
 		}
-		
+
 		while (!stay) {
 			// The dealer turns over his hidden card. ...
 			// ...and the hand and hand value are displayed.
 			System.out.print("Dealer's ");
 			((Player) dealer).showHand();
 			System.out.println();
-			
-			
-			if (dealer.getPlayerHand().is17OrOver()) {
-				// If the hand value is 17 or over 17, the dealer must stay.
-				System.out.println("Dealer has 17 or more. Dealer stays.");
-				System.out.println();
-				stay = true;
-			} // 17 or over 17 cb
-			else if (dealer.getPlayerHand().isBust()) {
+
+			if (dealer.getPlayerHand().isBust()) {
 //		If the dealer's hand is over 21, dealer busts.
 				System.out.println("Dealer hand is over 21. Bust. Player wins! The round is over");
 				System.out.println();
 				return false;
+			} else if (dealer.getPlayerHand().is17OrOver()) {
+				// If the hand value is 17 or over 17, the dealer must stay.
+				System.out.println("Dealer has 17 or more. Dealer stays.");
+				System.out.println();
+				stay = true;
+				// 17 or over 17 cb
 			} else {
 				// The dealer MUST Hit if the hand Value is below 17.
 				System.out.println("Dealer has less than 17. Dealer must hit.");
@@ -170,7 +171,7 @@ public class BlackjackApp {
 		System.out.print("Player's ");
 		player.showHand();
 		System.out.println();
-		
+
 		System.out.print("Dealer's ");
 		((Player) dealer).showHand();
 		System.out.println();
@@ -180,6 +181,10 @@ public class BlackjackApp {
 			System.out.println("Player wins! Round over.");
 			System.out.println();
 		} else if (player.getPlayerHand().getHandValue() == 21 && dealer.getPlayerHand().getHandValue() == 21) {
+//			If they both have 21, it's a tie. Round is still over. 
+			System.out.println("It's a tie! The round is over");
+			System.out.println();
+		} else if (player.getPlayerHand().getHandValue() == dealer.getPlayerHand().getHandValue()) {
 //			If they both have 21, it's a tie. Round is still over. 
 			System.out.println("It's a tie! The round is over");
 			System.out.println();
@@ -199,29 +204,32 @@ public class BlackjackApp {
 
 	//
 	public boolean playAgain(Scanner sc, Dealer dealer) {
-//		if less than 12 cards left, get a new deck and shuffle deck
-		System.out.println("Would you like to play another round?");
-		System.out.println("Y: Yes, N: No");
-		System.out.println();
+		
+		boolean validOption = true;
+do {
+	//		if less than 12 cards left, get a new deck and shuffle deck
+	System.out.println("Would you like to play another round?");
+	System.out.println("Y: Yes, N: No");
+	System.out.println();
+	String userInput = sc.nextLine();
+	if (userInput.toUpperCase().startsWith("Y")) {
 
-		String userInput = sc.nextLine();
-
-		if (userInput.toUpperCase().startsWith("Y")) {
-
-			if (dealer.getDeck().cardsLeftInDeck() < 12) {
-				dealer.getNewDeck();
-				System.out.println("Dealer shuffling new deck");
-				System.out.println();
-			}
-		} else if (userInput.toUpperCase().startsWith("N")) {
-			System.out.println("Thank you for playing BlackJack. Goodbye!");
-			return false;
-		} else {
-			System.out.println("That's not a valid option.");
-			System.out.println("Please choose \"Y\" for Yes or \"N\" for No");
+		if (dealer.getDeck().cardsLeftInDeck() < 12) {
+			dealer.getNewDeck();
+			System.out.println("Dealer shuffling new deck");
 			System.out.println();
 		}
-		return true;
+	} else if (userInput.toUpperCase().startsWith("N")) {
+		System.out.println("Thank you for playing BlackJack. Goodbye!");
+		return false;
+	} else {
+		System.out.println("That's not a valid option.");
+		System.out.println("Please choose \"Y\" for Yes or \"N\" for No");
+		System.out.println();
+		validOption = false;
+	}
+} while (!validOption);
+	return true;
 	}
 
 }
